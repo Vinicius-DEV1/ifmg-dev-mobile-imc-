@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "meu-app",
-    "slug": "meu-app",
+    "name": "Calculadora IMC",
+    "slug": "calculadora-imc",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "meuapp",
+    "scheme": "calculadoraimc",
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon"

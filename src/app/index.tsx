@@ -1,98 +1,123 @@
-import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+export default function calculadoraIMC(){
+  return(
+    <SafeAreaView style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.title}> Calculadora IMC </Text>
+        </View>
 
-import { AnimatedIcon } from '@/components/animated-icon';
-import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+        <View style={styles.inputsArea}>
 
-function getDevMenuHint() {
-  if (Platform.OS === 'web') {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
-  }
-  const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
-  return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
-  );
-}
+            <View style={styles.weight}>
+              <FontAwesome5 name="weight" size={32} color="black" />
+              <Text style={styles.label}>Peso (Kg)</Text>
+              <TextInput style={styles.input} placeholder='kg' keyboardType='numeric'/>
+            </View>
 
-export default function HomeScreen() {
-  return (
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
-          <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expo
-          </ThemedText>
-        </ThemedView>
+            <View style={styles.height}>
+              <MaterialCommunityIcons name="human-male-height" size={32} color="black"/>
+              <Text style={styles.label}>Altura (m)</Text>
+              <TextInput style={styles.input} placeholder='m' keyboardType='numeric'/>
+            </View>
 
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
+            <View style={{alignItems:'center', justifyContent:'space-around'}}>
 
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
-          />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
-        </ThemedView>
+            </View>
 
-        {Platform.OS === 'web' && <WebBadge />}
-      </SafeAreaView>
-    </ThemedView>
-  );
+          </View>
+
+          <View style={styles.result}>
+
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.btnText}>Calcular</Text>
+            </TouchableOpacity>
+            <View style={{ alignItems:'center', justifyContent:'space-around'}}>
+              <Text style={styles.resultText}>Seu IMC</Text>
+              <Text style={styles.resultValue}>20</Text>
+              <Text style={styles.resultClassification}>Classificação</Text>
+              <Text style={styles.resultClassificationValue}>Peso ideal</Text>
+            </View>
+
+          </View>
+
+    </SafeAreaView>
+  )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  container:{
+    flex:1,
+    backgroundColor: '#ECF0F1',
+    marginTop: StatusBar.currentHeight || 0,
+  },
+  header: {
+    flex: 0.1,
     justifyContent: 'center',
-    flexDirection: 'row',
+    alignItems: 'center'
   },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: Spacing.four,
+  title:{
+    fontSize:30,
+    fontWeight: 'bold'
+  },
+  inputsArea:{
+    flex: 0.5,
     alignItems: 'center',
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
+    justifyContent: 'space-evenly',
   },
-  heroSection: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
+  height:{
+    flex:0.5,
+    alignItems:'center',
   },
-  title: {
-    textAlign: 'center',
+  weight:{
+    flex:0.5,
+    alignItems:'center',
   },
-  code: {
-    textTransform: 'uppercase',
+  label:{
+    fontSize:24,
+    top:10,
   },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: 'stretch',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
+  input:{
+    width:100,
+    fontSize:22,
+    top:14,
+    textAlign:'center',
+    borderBottomWidth:1
   },
-});
+  result:{
+    flex:0.4,
+    alignItems:"center"
+  },
+  button:{
+    width: 150,
+    backgroundColor: '#0047AB',
+    padding:8,
+  },
+  btnText:{
+    fontSize: 18,
+    textAlign:'center',
+    color: '#FFF',
+  },
+  resultText:{
+    top:30,
+    fontSize:34,
+    fontWeight: 'bold',
+  },
+  resultValue:{
+    fontSize: 30,
+    top:30,
+    color: '#0047AB'
+  },
+  resultClassification:{
+    top:50,
+    fontSize:24,
+    fontWeight:'bold',
+  },
+  resultClassificationValue:{
+    fontSize:30,
+    top:50,
+    color:'red'
+  }
+})

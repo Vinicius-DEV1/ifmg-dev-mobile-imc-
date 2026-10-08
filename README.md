@@ -1,56 +1,77 @@
-# Welcome to your Expo app 👋
+# 📱 Calculadora de IMC
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Aplicativo mobile para cálculo e classificação do **Índice de Massa Corporal (IMC)**, desenvolvido como atividade prática do curso **"Programação para dispositivos móveis (básico)"** pelo **IFMG (Instituto Federal de Minas Gerais)**.
 
-## Get started
+---
 
-1. Install dependencies
+## 📌 Sobre o Projeto
 
+O objetivo do aplicativo é colocar em prática conceitos fundamentais de desenvolvimento mobile com **React Native** e **Expo**, incluindo:
+- Manipulação de estados com hooks (`useState`, `useEffect`)
+- Captura e validação de dados de entrada do usuário
+- Renderização condicional de componentes e estilos dinâmicos
+- Estruturação de layouts responsivos com `StyleSheet` e `SafeAreaView`
+
+---
+
+## ✨ Funcionalidades
+
+- [x] **Cálculo do IMC**: Calcula automaticamente a relação peso/altura² com arredondamento para duas casas decimais.
+- [x] **Classificação do IMC**: Apresenta a faixa correspondente de acordo com as diretrizes da OMS:
+  - *Abaixo do peso* (< 18.5)
+  - *Peso ideal* (18.5 – 24.9)
+  - *Sobrepeso* (25.0 – 29.9)
+  - *Obesidade classe I* (30.0 – 34.9)
+  - *Obesidade classe II* (35.0 – 39.9)
+  - *Obesidade classe III* (≥ 40.0)
+- [x] **Controle de Estado do Botão**: O botão de cálculo permanece desabilitado até que ambos os campos (peso e altura) sejam preenchidos.
+- [x] **Limpeza de Dados**: Alternância dinâmica para um botão "Limpar", permitindo resetar os campos e o resultado para uma nova consulta.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- **[React Native](https://reactnative.dev/)**
+- **[Expo](https://expo.dev/)** (SDK 57)
+- **[Expo Router](https://docs.expo.dev/router/introduction/)**
+- **[TypeScript](https://www.typescriptlang.org/)**
+- **[@expo/vector-icons](https://icons.expo.fyi/)** (FontAwesome5 & MaterialCommunityIcons)
+
+---
+
+## 🚀 Como Executar
+
+### Pré-requisitos
+
+- [Node.js](https://nodejs.org/) instalado.
+- Aplicativo **Expo Go** instalado no smartphone (Android/iOS) ou um emulador configurado.
+
+### Passo a passo
+
+1. **Clone o repositório:**
+   ```bash
+   git clone <url-do-seu-repositorio>
+   cd calculadora-imc
+   ```
+
+2. **Instale as dependências:**
    ```bash
    npm install
    ```
 
-2. Start the app
-
+3. **Inicie o servidor de desenvolvimento:**
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+4. **Abra o aplicativo:**
+   - Escaneie o QR Code exibido no terminal utilizando o aplicativo **Expo Go** no Android ou a câmera no iOS.
+   - Ou pressione `a` para rodar no emulador Android / `w` para abrir no navegador.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🎓 Instituição
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-### Other setup steps
-
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Projeto desenvolvido durante o curso:
+- **Curso:** Programação para dispositivos móveis (básico)
+- **Instituição:** Instituto Federal de Minas Gerais (IFMG)
